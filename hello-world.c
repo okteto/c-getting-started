@@ -44,9 +44,8 @@ int main(void) {
     printf("press ctrl+c to exit...\n");
     signal(SIGINT, sigint_handler);
     signal(SIGTERM, sigint_handler);
-    while (!sigint_received) {
-        printf("SIGINT received, exiting...\n");
-    }
+    while (!sigint_received) {}
+    printf("SIGINT received, exiting...\n");
   } else {
     fprintf(stderr, "Error starting server\n");
     return(1);
