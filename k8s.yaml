@@ -17,7 +17,7 @@ spec:
         name: hello-world
         resources:
           limits:
-            cpu: "100m"
+            cpu: "200m"
             memory: "32Mi"
       terminationGracePeriodSeconds: 1
 
