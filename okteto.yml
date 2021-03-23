@@ -1,0 +1,7 @@
+name: hello-world
+image: okteto/hello-world:c-dev
+command: bash
+sync:
+- .:/usr/src/app
+forward:
+- 8080:8080
