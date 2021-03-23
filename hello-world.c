@@ -29,6 +29,8 @@ int callback_healthz (const struct _u_request * request, struct _u_response * re
  * main function
  */
 int main(void) {
+  setbuf(stdout, NULL);
+  
   struct _u_instance instance;
 
   if (ulfius_init_instance(&instance, PORT, NULL, NULL) != U_OK) {
