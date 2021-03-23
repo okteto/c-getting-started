@@ -1,4 +1,4 @@
-FROM debian:buster as dev
+FROM debian:buster as base
 RUN apt-get update \
     && apt install -y build-essential wget curl libmicrohttpd-dev libjansson-dev libcurl4-gnutls-dev libgnutls28-dev libgcrypt20-dev libsystemd-dev libz-dev
 
@@ -8,12 +8,14 @@ RUN wget https://github.com/babelouest/ulfius/releases/download/v2.7.2/ulfius-de
     && dpkg -i libyder-dev_1.4.13_debian_buster_x86_64.deb \
     && dpkg -i libulfius-dev_2.7.2_debian_buster_x86_64.deb
 
+FROM base as dev
+
 WORKDIR /usr/src/app
 
 COPY . .
 RUN make build
 
-FROM debian:buster
+FROM base
 WORKDIR /app
 COPY --from=dev /usr/src/app/hello-world /app/hello-world
 EXPOSE 8080
