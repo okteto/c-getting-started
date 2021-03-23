@@ -15,10 +15,6 @@ spec:
       containers:
       - image: okteto/hello-world:c
         name: hello-world
-        resources:
-          limits:
-            cpu: "200m"
-            memory: "32Mi"
       terminationGracePeriodSeconds: 1
 
 ---

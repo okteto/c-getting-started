@@ -33,7 +33,7 @@ int main(void) {
 
   if (ulfius_init_instance(&instance, PORT, NULL, NULL) != U_OK) {
     fprintf(stderr, "Error ulfius_init_instance, abort\n");
-    return(1);
+    return 1;
   }
 
   ulfius_add_endpoint_by_val(&instance, "GET", "/", NULL, 0, &callback_hello_world, NULL);
@@ -48,11 +48,11 @@ int main(void) {
     printf("SIGINT received, exiting...\n");
   } else {
     fprintf(stderr, "Error starting server\n");
-    return(1);
+    return 1;
   }
   
   ulfius_stop_framework(&instance);
   ulfius_clean_instance(&instance);
   printf("bye\n");
-  return(0);
+  return 0;
 }
