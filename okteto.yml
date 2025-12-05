@@ -1,7 +1,8 @@
-name: hello-world
-image: okteto/hello-world:c-dev
-command: bash
-sync:
-- .:/usr/src/app
-forward:
-- 8080:8080
+dev:
+  hello-world:
+    image: ghcr.io/okteto/hello-world:c-dev
+    command: bash
+    sync:
+    - .:/usr/src/app
+    forward:
+    - 8080:8080
